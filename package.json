@@ -1,0 +1,28 @@
+{
+  "name": "engman",
+  "version": "0.0.1",
+  "description": "Meet Mr. Engman",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjabba/engman.git"
+  },
+  "keywords": [
+    "Engineering"
+  ],
+  "author": "Karl Berggren",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/jjabba/engman/issues"
+  },
+  "homepage": "https://github.com/jjabba/engman#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2"
+  }
+}
