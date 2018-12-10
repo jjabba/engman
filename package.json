@@ -4,8 +4,10 @@
   "description": "Meet Mr. Engman",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "node server.js"
+    "serve": "node server/node/server.js",
+    "serve-test": "node server.js",
+    "mine": "node mining/mine.js",
+    "mine-deamon": "node mining/mine.js --log-to-file"
   },
   "repository": {
     "type": "git",
@@ -15,14 +17,21 @@
     "Engineering"
   ],
   "author": "Karl Berggren",
-  "license": "GPL-3.0-only",
+  "license": "GNU General Public License v3.0 only",
   "bugs": {
     "url": "https://github.com/jjabba/engman/issues"
   },
   "homepage": "https://github.com/jjabba/engman#readme",
   "dependencies": {
+    "airtable": "^0.5.8",
+    "bluebird": "^3.5.3",
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
-    "graphql": "^14.0.2"
+    "graphql": "^14.0.2",
+    "sqlite3": "^4.0.4",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^6.2.0"
   }
 }
