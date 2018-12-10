@@ -30,7 +30,6 @@
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
     "mariadb": "^2.0.1-beta",
-    "sqlite3": "^4.0.4",
     "winston": "^3.1.0"
   },
   "devDependencies": {
