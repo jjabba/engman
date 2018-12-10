@@ -5,23 +5,13 @@ class EventRepository {
   
     createTable() {
       const sql = `
-      CREATE TABLE IF NOT EXISTS events (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        taskId TEXT,
-        type TEXT,
-        createdAt TEXT,
-        ownerId TEXT,
-        status TEXT,
-        CONSTRAINT tasks_fk_taskId FOREIGN KEY (taskId)
-          REFERENCES tasks(id) ON UPDATE CASCADE ON DELETE CASCADE)`
-      return this.dao.run(sql)
+      `
+      return this.dao.run(this.dao.getCreateFor('events'))
     }
 
     create(event) {
       const { taskId, type, ownerId, status } = event
-      return this.dao.run(
-        `INSERT INTO events (taskId, type, createdAt, ownerId, status)
-          VALUES (?, ?, datetime('now', 'utc'), ?, ?)`,
+      return this.dao.run( this.dao.getInsertFor('event'),
         [taskId, type, ownerId, status]
       )
     }

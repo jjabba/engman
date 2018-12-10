@@ -56,6 +56,55 @@ class ScrumDAO {
             })
         })
     }
+
+    getCreateFor(tableName) {
+        switch (tableName) {
+            case 'tasks':
+                return `
+                CREATE TABLE IF NOT EXISTS tasks (
+                    id TEXT PRIMARY KEY,
+                    name TEXT,
+                    owner TEXT,
+                    estimate TEXT,
+                    status TEXT,
+                    blocked INTEGER,
+                    unplanned INTEGER,
+                    createdAt TEXT,
+                    userStoryId TEXT
+                  )`
+                break;
+        
+            case 'events':
+                return `
+                CREATE TABLE IF NOT EXISTS events (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    taskId TEXT,
+                    type TEXT,
+                    createdAt TEXT,
+                    ownerId TEXT,
+                    status TEXT,
+                    CONSTRAINT tasks_fk_taskId FOREIGN KEY (taskId)
+                      REFERENCES tasks(id) ON UPDATE CASCADE ON DELETE CASCADE)`
+                break;
+            default:
+                break;
+        }
+    }
+
+    getInsertFor(tableName) {
+        switch (tableName) {
+        case 'event':
+            return `INSERT INTO events (taskId, type, createdAt, ownerId, status)
+            VALUES (?, ?, datetime('now', 'utc'), ?, ?)`;
+                break;
+            default:
+                break;
+        }
+    }
+
+    getDateTimeFrom(dateTime) {
+        return dateTime;
+    }
 }
 
 module.exports = ScrumDAO

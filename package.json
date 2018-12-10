@@ -7,7 +7,8 @@
     "serve": "node server/node/server.js",
     "serve-test": "node server.js",
     "mine": "node mining/mine.js",
-    "mine-deamon": "node mining/mine.js --log-to-file"
+    "mine-deamon": "node mining/mine.js --log-to-file",
+    "mine-maria": "node mining/mine-maria.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "express": "^4.16.4",
     "express-graphql": "^0.7.1",
     "graphql": "^14.0.2",
+    "mariadb": "^2.0.1-beta",
     "sqlite3": "^4.0.4",
     "winston": "^3.1.0"
   },

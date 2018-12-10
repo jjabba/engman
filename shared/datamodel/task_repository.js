@@ -5,18 +5,8 @@ class TaskRepository {
 
     createTable() {
       const sql = `
-        CREATE TABLE IF NOT EXISTS tasks (
-          id TEXT PRIMARY KEY,
-          name TEXT,
-          owner TEXT,
-          estimate TEXT,
-          status TEXT,
-          blocked INTEGER,
-          unplanned INTEGER,
-          createdAt TEXT,
-          userStoryId TEXT
-        )`
-      return this.dao.run(sql)
+        `
+      return this.dao.run(this.dao.getCreateFor('tasks'))
     }
 
     create(task) {
@@ -47,7 +37,7 @@ class TaskRepository {
 
     find(id) {
       const sql = `
-        SELECT * FROM tasks WHERE id is (?)`
+        SELECT * FROM tasks WHERE id = (?)`
       return this.dao.get(sql, [id])
     }
 
